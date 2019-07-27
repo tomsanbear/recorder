@@ -12,7 +12,8 @@ import (
 func TestRecorderWriter(t *testing.T) {
 	sut := NewRecorderWriter(&test.ResponseWriter{})
 	testMsg := new(dns.Msg)
-	sut.WriteMsg(testMsg)
+	err := sut.WriteMsg(testMsg)
+	assert.NoError(t, err)
 	assert.Equal(t, sut.msg, testMsg)
 	assert.Equal(t, sut.LocalAddr().String(), "127.0.0.1:53")
 	assert.Equal(t, sut.RemoteAddr().String(), "10.240.0.1:40212")
