@@ -6,6 +6,7 @@ import (
 	"github.com/miekg/dns"
 )
 
+// RecorderWriter encapsulates the response that is written to the response writer, allows later plugins to access data after sending response back to the user
 type RecorderWriter struct {
 	rw  dns.ResponseWriter
 	msg *dns.Msg

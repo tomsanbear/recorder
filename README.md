@@ -4,3 +4,7 @@
 # CoreDNS recorder
 
 This CoreDNS plugin implements a dns.ResponseWriter that records the message that was sent through it's chain. This is useful only if you need to access readonly data for what was sent back to the user. 
+
+There is no configuration for this plugin at this time, super simple and easy implementation to add for your plugins.
+
+For reference use, please see my other pluging [dns logging](https://github.com/tomsanbear/dnslogging)
