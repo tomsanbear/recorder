@@ -17,18 +17,8 @@ func init() {
 }
 
 func setup(c *caddy.Controller) error {
-	// Normal Setup
-	recorder, err := NewRecorder()
-	if err != nil {
-		return plugin.Error(PluginName, err)
-	}
-
-	// Pass plugin to our context
 	dnsserver.GetConfig(c).AddPlugin(func(next plugin.Handler) plugin.Handler {
-		recorder.Next = next
-		return nil
+		return Recorder{Next: next}
 	})
-
-	// Done
 	return nil
 }
